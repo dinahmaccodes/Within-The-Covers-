@@ -1,0 +1,16 @@
+
+
+User 1
+Name:Katherine
+Email:theeloiserosewood@gmail.com
+Password:1234
+
+Admin 1
+Name:Khloe
+Email:dee96914@gmail.com
+Password:n6789
+
+Admin 2
+Name:Cameron
+Email:h565dee@gmail.com
+Password:45678
