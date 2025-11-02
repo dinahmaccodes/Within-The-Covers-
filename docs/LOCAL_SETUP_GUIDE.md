@@ -58,6 +58,9 @@ sudo apt install -y mysql-server
 # Start MySQL
 sudo systemctl start mysql
 sudo systemctl enable mysql
+
+# Verify MySQL is running
+sudo systemctl status mysql
 ```
 
 ---
@@ -979,8 +982,8 @@ This application is ready for deployment."
 
 After setup, access at:
 
-| Page            | URL                                        |
-| --------------- | ------------------------------------------ |
+| Page            | URL                                          |
+| --------------- | -------------------------------------------- |
 | Home            | <http://localhost:8000>                      |
 | Shop            | <http://localhost:8000/shoppage.php>         |
 | Cart            | <http://localhost:8000/cartpage.php>         |
@@ -1172,5 +1175,282 @@ For code fixes, see: `IMPLEMENTATION_GUIDE.md`
 
 ---
 
+## 🔄 How to Restart Later - QUICK REFERENCE
+
+### ⚡ Super Quick Start (Copy & Paste)
+
+Use this command every time you want to run the app locally:
+
+#### WINDOWS (XAMPP)
+
+```batch
+REM LOCATION: C:\xampp\htdocs\shop
+REM 1. Open XAMPP Control Panel
+REM 2. Click START on Apache
+REM 3. Click START on MySQL
+REM 4. Open browser: http://localhost/shop
+```
+
+#### macOS
+
+```bash
+# LOCATION: ~/Sites/shop or /var/www/html/shop
+
+# 1. Open Terminal
+
+# 2. Navigate to project
+cd ~/Sites/shop
+
+# 3. Make sure MySQL is running
+mysql.server start
+
+# 4. Start PHP server
+php -S localhost:8000
+
+# 5. Open browser: http://localhost:8000/index.php
+```
+
+#### LINUX (Ubuntu/Debian)
+
+```bash
+# LOCATION: /var/www/html/shop
+
+# 1. Open Terminal
+
+# 2. Navigate to project
+cd /var/www/html/shop
+
+# 3. Make sure MySQL is running
+sudo systemctl start mysql
+
+# 4. Start PHP server
+php -S localhost:8000
+
+# 5. Open browser: http://localhost:8000/index.php
+```
+
+---
+
+### 📋 Complete Restart Procedure (All Platforms)
+
+#### Step 1: Navigate to Project Directory
+
+**Windows (XAMPP):**
+
+```batch
+REM LOCATION: C:\xampp\htdocs\shop
+cd C:\xampp\htdocs\shop
+```
+
+**macOS:**
+
+```bash
+# LOCATION: ~/Sites/shop
+cd ~/Sites/shop
+```
+
+**Linux:**
+
+```bash
+# LOCATION: /var/www/html/shop
+cd /var/www/html/shop
+```
+
+#### Step 2: Start Database Server
+
+**Windows (XAMPP):**
+
+```batch
+REM LOCATION: XAMPP Control Panel
+REM Just click "Start" button next to MySQL
+```
+
+**macOS:**
+
+```bash
+# LOCATION: Terminal
+mysql.server start
+```
+
+**Linux:**
+
+```bash
+# LOCATION: Terminal
+sudo systemctl start mysql
+```
+
+#### Step 3: Start PHP Development Server
+
+**All Platforms (Windows Command Prompt, macOS/Linux Terminal):**
+
+```bash
+# LOCATION: Terminal/Command Prompt (from Step 1 directory)
+php -S localhost:8000
+```
+
+You should see:
+
+```
+PHP 8.3.6 Development Server (http://127.0.0.1:8000) started
+Listening on http://127.0.0.1:8000
+Press Ctrl+C to quit
+```
+
+#### Step 4: Open Browser
+
+**All Platforms:**
+
+```
+http://localhost:8000/index.php
+```
+
+You should see the **Within The Covers homepage with 12 books!** 📚
+
+---
+
+### 🛑 How to STOP the Application
+
+#### Stop PHP Server (All Platforms)
+
+**In the Terminal/Command Prompt where PHP is running:**
+
+```
+Ctrl+C
+```
+
+You should see: `Terminated`
+
+#### Stop MySQL (Optional)
+
+**Windows (XAMPP):**
+
+```batch
+REM LOCATION: XAMPP Control Panel
+REM Click "Stop" button next to MySQL
+```
+
+**macOS:**
+
+```bash
+# LOCATION: Terminal
+mysql.server stop
+```
+
+**Linux:**
+
+```bash
+# LOCATION: Terminal
+sudo systemctl stop mysql
+```
+
+---
+
+### 📋 Restart Checklist (Use Every Time)
+
+Use this checklist each time you want to run the app:
+
+- [ ] **Navigate:** `cd /var/www/html/shop` (or your project location)
+- [ ] **MySQL Start:** `sudo systemctl start mysql` (Linux) or `mysql.server start` (macOS) or XAMPP button (Windows)
+- [ ] **PHP Start:** `php -S localhost:8000`
+- [ ] **Browser:** Open `http://localhost:8000/index.php`
+- [ ] **See 12 books?** ✅ If yes, you're ready to demo!
+- [ ] **Done!** Ready to test or record
+
+---
+
+### 🔑 Login Credentials (Always the Same)
+
+**Keep these for reference - never change them:**
+
+```
+Regular User:
+  Email: theeloiserosewood@gmail.com
+  Password: 1234
+
+Admin User:
+  Email: dee96914@gmail.com
+  Password: n6789
+```
+
+---
+
+### 🐛 Quick Troubleshooting
+
+**Q: "Port 8000 already in use"**
+
+```bash
+# Use a different port
+php -S localhost:9000
+# Then open: http://localhost:9000/index.php
+```
+
+**Q: "Cannot connect to database"**
+
+```bash
+# Check MySQL is running
+mysql -u root -e "SELECT 1;"
+
+# If error, start MySQL:
+# Linux: sudo systemctl start mysql
+# macOS: mysql.server start
+```
+
+**Q: "Connection refused"**
+
+```bash
+# Make sure PHP server is running (Step 3 above)
+# Should show: "Development Server (http://127.0.0.1:8000) started"
+```
+
+---
+
+### 💡 Pro Tips
+
+1. **Keep terminal open** while testing
+
+   - Shows server status
+   - Displays any errors in real-time
+
+2. **Use a new browser window** each time
+
+   - Clears browser cache
+   - Prevents login issues
+
+3. **Check browser console** for errors
+
+   - Press F12 (or Cmd+Option+I on macOS)
+   - Click "Console" tab
+   - Look for red error messages
+
+4. **If stuck,** just:
+   - Press `Ctrl+C` to stop PHP
+   - Restart MySQL (see Stop section above)
+   - Run Step 3 again: `php -S localhost:8000`
+
+---
+
+### 📁 Project Locations Reference
+
+| OS                  | Location               | Start Command           |
+| ------------------- | ---------------------- | ----------------------- |
+| **Windows (XAMPP)** | `C:\xampp\htdocs\shop` | Use XAMPP Control Panel |
+| **macOS**           | `~/Sites/shop`         | `php -S localhost:8000` |
+| **Linux**           | `/var/www/html/shop`   | `php -S localhost:8000` |
+
+---
+
+### ✨ You're All Set
+
+**Next Time You Want to Run It:**
+
+1. Navigate to project (see table above)
+2. Start MySQL (if needed)
+3. Run: `php -S localhost:8000`
+4. Open: `http://localhost:8000/index.php`
+5. Test features or record demo!
+
+---
+
 **Document Created:** November 2, 2025  
-**Status:** READY FOR LOCAL SETUP & DEMO
+**Last Updated:** November 2, 2025  
+**Status:** READY FOR LOCAL SETUP & RESTART
