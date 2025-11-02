@@ -5,6 +5,13 @@ Name:Katherine
 Email:theeloiserosewood@gmail.com
 Password:1234
 
+User 2 
+Dinah Mac
+Email: dinahmaccodes@gmail.com
+Password: 1234gh
+user
+
+
 Admin 1
 Name:Khloe
 Email:dee96914@gmail.com
